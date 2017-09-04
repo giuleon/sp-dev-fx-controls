@@ -1,0 +1,8 @@
+{
+    "@microsoft/generator-sharepoint": {
+        "version": "1.1.1",
+        "libraryName": "pnp-components",
+        "libraryId": "d37ffc26-1621-448d-b1ac-a242b3cceaa2",
+        "environment": "spo"
+    }
+}

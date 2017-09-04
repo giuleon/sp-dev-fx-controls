@@ -1,0 +1,16 @@
+{
+  "version": "2.0",
+  "bundles": {
+    "test-fields-web-part": {
+      "components": [{
+        "entrypoint": "./lib/webparts/testFields/TestFieldsWebPart.js",
+        "manifest": "./src/webparts/testFields/TestFieldsWebPart.manifest.json"
+      }]
+    }
+  },
+  "localizedResources": {
+    "componentAndFieldStrings": "lib/loc/{locale}.js",
+    "TestFieldsWebPartStrings": "lib/webparts/testFields/loc/{locale}.js"
+  },
+  "externals": {}
+}
