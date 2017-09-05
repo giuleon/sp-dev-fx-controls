@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "pnp-components-client-side-solution",
+    "id": "d37ffc26-1621-448d-b1ac-a242b3cceaa2",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/pnp-components.sppkg"
+  }
+}
