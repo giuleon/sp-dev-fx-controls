@@ -18,6 +18,7 @@ import { ITermStore, IGroup, ITerm } from './../../services/ISPTermStorePickerSe
 import styles from './PropertyFieldTermSetPickerHost.module.scss';
 import { sortBy, uniqBy } from '@microsoft/sp-lodash-subset';
 import TermGroup from './TermGroup';
+import FieldErrorMessage from '../errorMessage/FieldErrorMessage';
 
 /**
  * Image URLs / Base64
@@ -234,18 +235,6 @@ export default class PropertyFieldTermSetPickerHost extends React.Component<IPro
       termSetsString = this.state.activeNodes.map(term => term.name).join(', ');
     }
 
-    // Error element
-    let errorElm: JSX.Element = <div />;
-    if (typeof this.state.errorMessage !== 'undefined' && this.state.errorMessage !== null && this.state.errorMessage !== '') {
-      errorElm = (
-        <div style={{ paddingBottom: '8px' }}><div aria-live='assertive' className='ms-u-screenReaderOnly' data-automation-id='error-message'>{this.state.errorMessage}</div>
-          <span>
-            <p className='ms-TextField-errorMessage ms-u-slideDownIn20'>{this.state.errorMessage}</p>
-          </span>
-        </div>
-      );
-    }
-
     // Renders content
     return (
       <div>
@@ -269,7 +258,7 @@ export default class PropertyFieldTermSetPickerHost extends React.Component<IPro
           </tbody>
         </table>
 
-        {errorElm}
+        <FieldErrorMessage errorMessage={this.state.errorMessage} />
 
         <Panel
           isOpen={this.state.openPanel}

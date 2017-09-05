@@ -16,6 +16,7 @@ export default class TestFields extends React.Component<ITestFieldsProps, {}> {
               <p className="ms-font-l ms-fontColor-white">List: {this.props.list}</p>
               <p className="ms-font-l ms-fontColor-white">Multi List: {this.props.multiList.join(', ')}</p>
               <p className="ms-font-l ms-fontColor-white">Term(s): {this.props.terms.map(t => t.name).join(', ')}</p>
+              <p className="ms-font-l ms-fontColor-white">Date: {this.props.datetime.displayValue}</p>
             </div>
           </div>
         </div>

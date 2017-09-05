@@ -10,6 +10,7 @@ import { Async } from 'office-ui-fabric-react/lib/Utilities';
 import * as strings from 'componentAndFieldStrings';
 import { IPropertyFieldPeoplePickerHostProps, IPeoplePickerState } from "./IPropertyFieldPeoplePickerHost";
 import SPPeopleSearchService from "../../services/SPPeopleSearchService";
+import FieldErrorMessage from '../errorMessage/FieldErrorMessage';
 
 /**
  * @class
@@ -76,17 +77,6 @@ export default class PropertyFieldPeoplePickerHost extends React.Component<IProp
       }
     }
 
-    let errorElm: JSX.Element = <div />;
-    if (typeof this.state.errorMessage !== 'undefined' && this.state.errorMessage !== null && this.state.errorMessage !== '') {
-      errorElm = (
-        <div style={{ paddingBottom: '8px' }}><div aria-live='assertive' className='ms-u-screenReaderOnly' data-automation-id='error-message'>{this.state.errorMessage}</div>
-          <span>
-            <p className='ms-TextField-errorMessage ms-u-slideDownIn20'>{this.state.errorMessage}</p>
-          </span>
-        </div>
-      );
-    }
-
     // Renders content
     return (
       <div>
@@ -97,7 +87,7 @@ export default class PropertyFieldPeoplePickerHost extends React.Component<IProp
           onChange={this.onItemChanged}
           defaultSelectedItems={this.intialPersonas} />
 
-        {errorElm}
+        <FieldErrorMessage errorMessage={this.state.errorMessage} />
       </div>
     );
   }

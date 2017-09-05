@@ -1,3 +1,10 @@
+/**
+ * DISCLAIMER
+ * 
+ * As there is not yet an OData end-point for managed metadata, this service makes use of the ProcessQuery end-points.
+ * The service will get updated once the APIs are in place for managing managed metadata.
+ */
+
 import { SPHttpClient, SPHttpClientResponse, ISPHttpClientOptions } from '@microsoft/sp-http';
 import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 import { IWebPartContext } from '@microsoft/sp-webpart-base';

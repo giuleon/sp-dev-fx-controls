@@ -16,6 +16,7 @@ import { ITestFieldsWebPartProps } from './ITestFieldsWebPartProps';
 import { PropertyFieldPeoplePicker, IPrincipalType } from '../../PropertyFieldPeoplePicker';
 import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from "../../PropertyFieldListPicker";
 import { PropertyFieldTermSetPicker } from "../../PropertyFieldTermSetPicker";
+import { PropertyFieldDatePicker, ITimeConvention, IDateConvention } from "../../PropertyFieldDatePicker";
 
 export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFieldsWebPartProps> {
 
@@ -26,7 +27,8 @@ export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFields
         description: this.properties.description,
         list: this.properties.singleList as string,
         multiList: this.properties.multiList as string[] || [],
-        terms: this.properties.terms || []
+        terms: this.properties.terms || [],
+        datetime: this.properties.datetime || { value: null, displayValue: null }
       }
     );
 
@@ -119,6 +121,20 @@ export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFields
                   onGetErrorMessage: null,
                   deferredValidationTime: 0,
                   key: 'termSetsPickerFieldId'
+                }),
+                PropertyFieldDatePicker('datetime', {
+                  label: 'Select the date',
+                  initialDate: this.properties.datetime,
+                  // formatDate: this._formatDateIso,
+                  dateConvention: IDateConvention.Date,
+                  timeConvention: ITimeConvention.Hours12,
+                  onPropertyChange: this.onPropertyPaneFieldChanged,
+                  render: this.render.bind(this),
+                  disableReactivePropertyChanges: this.disableReactivePropertyChanges,
+                  properties: this.properties,
+                  onGetErrorMessage: null,
+                  deferredValidationTime: 0,
+                  key: 'dateTimeFieldId'
                 })
               ]
             }
@@ -126,6 +142,10 @@ export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFields
         }
       ]
     };
+  }
+
+  private _formatDateIso(date: Date): string {
+    return date.toISOString();
   }
 }
 

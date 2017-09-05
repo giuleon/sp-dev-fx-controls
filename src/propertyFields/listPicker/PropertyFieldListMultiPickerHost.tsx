@@ -7,6 +7,7 @@ import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 import { IPropertyFieldListMultiPickerHostProps, IPropertyFieldListMultiPickerHostState } from './IPropertyFieldListMultiPickerHost';
 import { ISPLists, ISPList } from './IPropertyFieldListPickerHost';
 import SPListPickerService from '../../services/SPListPickerService';
+import FieldErrorMessage from '../errorMessage/FieldErrorMessage';
 
 /**
 * @class
@@ -175,17 +176,6 @@ export default class PropertyFieldListMultiPickerHost extends React.Component<IP
         color: this.props.disabled === true ? '#A6A6A6' : 'auto'
       };
 
-      let errorElm: JSX.Element = <div />;
-      if (typeof this.state.errorMessage !== 'undefined' && this.state.errorMessage !== null && this.state.errorMessage !== '') {
-        errorElm = (
-          <div style={{ paddingBottom: '8px' }}><div aria-live='assertive' className='ms-u-screenReaderOnly' data-automation-id='error-message'>{this.state.errorMessage}</div>
-            <span>
-              <p className='ms-TextField-errorMessage ms-u-slideDownIn20'>{this.state.errorMessage}</p>
-            </span>
-          </div>
-        );
-      }
-
       // Renders content
       return (
         <div>
@@ -207,7 +197,7 @@ export default class PropertyFieldListMultiPickerHost extends React.Component<IP
             })
           }
 
-          {errorElm}
+          <FieldErrorMessage errorMessage={this.state.errorMessage} />
         </div>
       );
     }

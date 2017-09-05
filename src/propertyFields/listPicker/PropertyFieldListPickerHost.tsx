@@ -4,6 +4,7 @@ import { Async } from 'office-ui-fabric-react/lib/Utilities';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { IPropertyFieldListPickerHostProps, IPropertyFieldFontPickerHostState, ISPList, ISPLists } from "./IPropertyFieldListPickerHost";
 import SPListPickerService from '../../services/SPListPickerService';
+import FieldErrorMessage from '../errorMessage/FieldErrorMessage';
 
 // Empty list value, to be checked for single list selection
 const EMPTY_LIST_KEY = "NO_LIST_SELECTED";
@@ -161,17 +162,6 @@ export default class PropertyFieldListPickerHost extends React.Component<IProper
    * Renders the SPListpicker controls with Office UI Fabric
    */
   public render(): JSX.Element {
-    let errorElm: JSX.Element = <div />;
-    if (typeof this.state.errorMessage !== 'undefined' && this.state.errorMessage !== null && this.state.errorMessage !== '') {
-      errorElm = (
-        <div style={{ paddingBottom: '8px' }}><div aria-live='assertive' className='ms-u-screenReaderOnly' data-automation-id='error-message'>{this.state.errorMessage}</div>
-          <span>
-            <p className='ms-TextField-errorMessage ms-u-slideDownIn20'>{this.state.errorMessage}</p>
-          </span>
-        </div>
-      );
-    }
-
     // Renders content
     return (
       <div>
@@ -184,7 +174,7 @@ export default class PropertyFieldListPickerHost extends React.Component<IProper
           selectedKey={this.selectedKey}
         />
 
-        {errorElm}
+        <FieldErrorMessage errorMessage={this.state.errorMessage} />
       </div>
     );
   }
