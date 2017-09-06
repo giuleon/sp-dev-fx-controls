@@ -83,8 +83,17 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
      * @param value File path
      */
     private _getFileExtension(value): string {
+        // Split the URL on the dots
         const splittedValue = value.split('.');
-        return splittedValue.pop();
+        // Take the last value
+        let extensionValue = splittedValue.pop();
+        // Check if there are query string params in place
+        if (extensionValue.indexOf('?') !== -1) {
+            // Split the string on the question mark and return the first part
+            const querySplit = extensionValue.split('?');
+            extensionValue = querySplit[0];
+        }
+        return extensionValue;
     }
 
     /**

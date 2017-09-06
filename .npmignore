@@ -8,6 +8,7 @@ temp
 config
 typings
 lib/webparts
+assets
 
 # Files
 *.csproj

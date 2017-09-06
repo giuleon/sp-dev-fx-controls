@@ -64,7 +64,7 @@ export default class TestFields extends React.Component<ITestFieldsProps, ITestF
               <p className="ms-font-l ms-fontColor-white">Image icons:
                 <FileTypeIcon type={IconType.image} path="https://contoso.sharepoint.com/documents/filename.docx" />
                 <FileTypeIcon type={IconType.image} path="https://contoso.sharepoint.com/documents/filename.unknown" />
-                <FileTypeIcon type={IconType.image} path="https://contoso.sharepoint.com/documents/filename.doc" />
+                <FileTypeIcon type={IconType.image} path="https://contoso.sharepoint.com/documents/filename.doc?querystring='prop1'&amp;prop2='test'" />
                 <FileTypeIcon type={IconType.image} application={ApplicationType.Word} />
 
                 <FileTypeIcon type={IconType.image} size={ImageSize.small} application={ApplicationType.Excel} />
