@@ -1,1 +1,1 @@
-export * from './components/react/fileTypeIcon';
+export * from './components/react/fileTypeIcon/index';
