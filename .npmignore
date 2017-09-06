@@ -9,6 +9,7 @@ config
 typings
 lib/webparts
 assets
+dist
 
 # Files
 *.csproj
