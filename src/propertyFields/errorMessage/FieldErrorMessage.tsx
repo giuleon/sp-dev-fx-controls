@@ -8,7 +8,7 @@ export interface IFieldErrorMessageProps {
 
 export default class FieldErrorMessage extends React.Component<IFieldErrorMessageProps> {
     public render(): JSX.Element {
-        if (this.props.errorMessage != "undefined" && this.props.errorMessage !== null && this.props.errorMessage !== '') {
+        if (this.props.errorMessage !== "undefined" && this.props.errorMessage !== null && this.props.errorMessage !== '') {
             return (
                 <div style={{ paddingBottom: '8px' }}><div aria-live='assertive' className='ms-u-screenReaderOnly' data-automation-id='error-message'>{this.props.errorMessage}</div>
                     <span>
