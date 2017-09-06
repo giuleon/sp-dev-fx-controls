@@ -1,20 +1,20 @@
-import { ICheckedTerms } from './IPropertyFieldTermSetPicker';
+import { ICheckedTerms } from './IPropertyFieldTermPicker';
 import { ITermStore, IGroup, ITermSet, ITerm } from '../../services/ISPTermStorePickerService';
-import { IPropertyFieldTermSetPickerPropsInternal } from "./IPropertyFieldTermSetPicker";
+import { IPropertyFieldTermPickerPropsInternal } from "./IPropertyFieldTermPicker";
 import SPTermStorePickerService from '../../services/SPTermStorePickerService';
 
 /**
  * @interface
- * PropertyFieldTermSetPickerHost properties interface
+ * PropertyFieldTermPickerHost properties interface
  *
  */
-export interface IPropertyFieldTermSetPickerHostProps extends IPropertyFieldTermSetPickerPropsInternal {
+export interface IPropertyFieldTermPickerHostProps extends IPropertyFieldTermPickerPropsInternal {
   onChange: (targetProperty?: string, newValue?: any) => void;
 }
 
 /**
  * @interface
- * PropertyFieldTermSetPickerHost state interface
+ * PropertyFieldTermPickerHost state interface
  *
  */
 export interface IPropertyFieldFontPickerHostState {

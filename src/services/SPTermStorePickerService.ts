@@ -8,8 +8,8 @@
 import { SPHttpClient, SPHttpClientResponse, ISPHttpClientOptions } from '@microsoft/sp-http';
 import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 import { IWebPartContext } from '@microsoft/sp-webpart-base';
-import { IPropertyFieldTermSetPickerHostProps } from "./../propertyFields/termPicker/IPropertyFieldTermSetPickerHost";
-import { ISPTermStores, ISPTermStore, ISPTermGroups, ISPTermGroup, ICheckedTerms, ICheckedTerm } from "./../propertyFields/termPicker/IPropertyFieldTermSetPicker";
+import { IPropertyFieldTermPickerHostProps } from "./../propertyFields/termPicker/IPropertyFieldTermPickerHost";
+import { ISPTermStores, ISPTermStore, ISPTermGroups, ISPTermGroup, ICheckedTerms, ICheckedTerm } from "./../propertyFields/termPicker/IPropertyFieldTermPicker";
 import { ITermStore, ITerms, ITerm } from "./ISPTermStorePickerService";
 import SPTermStoreMockHttpClient from './SPTermStorePickerMockService';
 
@@ -19,7 +19,7 @@ import SPTermStoreMockHttpClient from './SPTermStorePickerMockService';
  */
 export default class SPTermStorePickerService {
   private context: IWebPartContext;
-  private props: IPropertyFieldTermSetPickerHostProps;
+  private props: IPropertyFieldTermPickerHostProps;
   private taxonomySession: string;
   private formDigest: string;
   private clientServiceUrl: string;
@@ -28,7 +28,7 @@ export default class SPTermStorePickerService {
    * @function
    * Service constructor
    */
-  constructor(_props: IPropertyFieldTermSetPickerHostProps, pageContext: IWebPartContext) {
+  constructor(_props: IPropertyFieldTermPickerHostProps, pageContext: IWebPartContext) {
     this.props = _props;
     this.context = pageContext;
 

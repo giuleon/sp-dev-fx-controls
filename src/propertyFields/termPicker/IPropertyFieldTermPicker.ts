@@ -66,10 +66,10 @@ export interface ISPTermGroups extends Array<ISPTermGroup> {
 
 /**
  * @interface
- * Public properties of the PropertyFieldTermSetPicker custom field
+ * Public properties of the PropertyFieldTermPicker custom field
  *
  */
-export interface IPropertyFieldTermSetPickerProps {
+export interface IPropertyFieldTermPickerProps {
   /**
    * @var
    * Property field label displayed on top
@@ -162,13 +162,13 @@ export interface IPropertyFieldTermSetPickerProps {
 
 /**
  * @interface
- * Private properties of the PropertyFieldTermSetPicker custom field.
+ * Private properties of the PropertyFieldTermPicker custom field.
  * We separate public & private properties to include onRender & onDispose method waited
  * by the PropertyFieldCustom, witout asking to the developer to add it when he's using
- * the PropertyFieldTermSetPicker.
+ * the PropertyFieldTermPicker.
  *
  */
-export interface IPropertyFieldTermSetPickerPropsInternal extends IPropertyFieldTermSetPickerProps {
+export interface IPropertyFieldTermPickerPropsInternal extends IPropertyFieldTermPickerProps {
   label: string;
   targetProperty: string;
   panelTitle: string;

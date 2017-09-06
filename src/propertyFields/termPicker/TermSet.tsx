@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Spinner, SpinnerType } from 'office-ui-fabric-react/lib/Spinner';
-import { ITermSetProps, ITermSetState } from "./IPropertyFieldTermSetPickerHost";
+import { ITermSetProps, ITermSetState } from "./IPropertyFieldTermPickerHost";
 import { ITerm } from "../../services/ISPTermStorePickerService";
-import { EXPANDED_IMG, COLLAPSED_IMG, TERMSET_IMG } from "./PropertyFieldTermSetPickerHost";
+import { EXPANDED_IMG, COLLAPSED_IMG, TERMSET_IMG } from "./PropertyFieldTermPickerHost";
 import Term from './Term';
 
-import styles from './PropertyFieldTermSetPickerHost.module.scss';
+import styles from './PropertyFieldTermPickerHost.module.scss';
 
 /**
  * @class

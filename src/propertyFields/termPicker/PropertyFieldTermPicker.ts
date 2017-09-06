@@ -5,20 +5,20 @@ import {
   PropertyPaneFieldType,
   IWebPartContext
 } from '@microsoft/sp-webpart-base';
-import PropertyFieldTermSetPickerHost from './PropertyFieldTermSetPickerHost';
-import { IPropertyFieldTermSetPickerHostProps } from './IPropertyFieldTermSetPickerHost';
-import { IPropertyFieldTermSetPickerPropsInternal, IPropertyFieldTermSetPickerProps, ICheckedTerms } from './IPropertyFieldTermSetPicker';
+import PropertyFieldTermPickerHost from './PropertyFieldTermPickerHost';
+import { IPropertyFieldTermPickerHostProps } from './IPropertyFieldTermPickerHost';
+import { IPropertyFieldTermPickerPropsInternal, IPropertyFieldTermPickerProps, ICheckedTerms } from './IPropertyFieldTermPicker';
 
 /**
  * @class
- * Represents a PropertyFieldTermSetPicker object
+ * Represents a PropertyFieldTermPicker object
  */
-class PropertyFieldTermSetPickerBuilder implements IPropertyPaneField<IPropertyFieldTermSetPickerPropsInternal> {
+class PropertyFieldTermPickerBuilder implements IPropertyPaneField<IPropertyFieldTermPickerPropsInternal> {
 
   // Properties defined by IPropertyPaneField
   public type: PropertyPaneFieldType = PropertyPaneFieldType.Custom;
   public targetProperty: string;
-  public properties: IPropertyFieldTermSetPickerPropsInternal;
+  public properties: IPropertyFieldTermPickerPropsInternal;
 
   // Custom properties label: string;
   private label: string;
@@ -41,7 +41,7 @@ class PropertyFieldTermSetPickerBuilder implements IPropertyPaneField<IPropertyF
    * @function
    * Constructor
    */
-  public constructor(_targetProperty: string, _properties: IPropertyFieldTermSetPickerPropsInternal) {
+  public constructor(_targetProperty: string, _properties: IPropertyFieldTermPickerPropsInternal) {
     this.render = this.render.bind(this);
     this.targetProperty = _targetProperty;
     this.properties = _properties;
@@ -82,7 +82,7 @@ class PropertyFieldTermSetPickerBuilder implements IPropertyPaneField<IPropertyF
    */
   private render(elem: HTMLElement, ctx?: any, changeCallback?: (targetProperty?: string, newValue?: any) => void): void {
     // Construct the JSX properties
-    const element: React.ReactElement<IPropertyFieldTermSetPickerHostProps> = React.createElement(PropertyFieldTermSetPickerHost, {
+    const element: React.ReactElement<IPropertyFieldTermPickerHostProps> = React.createElement(PropertyFieldTermPickerHost, {
       label: this.label,
       targetProperty: this.targetProperty,
       panelTitle: this.panelTitle,
@@ -123,9 +123,9 @@ class PropertyFieldTermSetPickerBuilder implements IPropertyPaneField<IPropertyF
  * @param targetProperty - Target property the SharePoint list picker is associated to.
  * @param properties - Strongly typed SPList Picker properties.
  */
-export function PropertyFieldTermSetPicker(targetProperty: string, properties: IPropertyFieldTermSetPickerProps): IPropertyPaneField<IPropertyFieldTermSetPickerPropsInternal> {
+export function PropertyFieldTermPicker(targetProperty: string, properties: IPropertyFieldTermPickerProps): IPropertyPaneField<IPropertyFieldTermPickerPropsInternal> {
   // Create an internal properties object from the given properties
-  var newProperties: IPropertyFieldTermSetPickerPropsInternal = {
+  var newProperties: IPropertyFieldTermPickerPropsInternal = {
     label: properties.label,
     targetProperty: targetProperty,
     panelTitle: properties.panelTitle,
@@ -144,7 +144,7 @@ export function PropertyFieldTermSetPicker(targetProperty: string, properties: I
     render: properties.render,
     disableReactivePropertyChanges: properties.disableReactivePropertyChanges
   };
-  // Calls the PropertyFieldTermSetPicker builder object
+  // Calls the PropertyFieldTermPicker builder object
   // This object will simulate a PropertyFieldCustom to manage his rendering process
-  return new PropertyFieldTermSetPickerBuilder(targetProperty, newProperties);
+  return new PropertyFieldTermPickerBuilder(targetProperty, newProperties);
 }

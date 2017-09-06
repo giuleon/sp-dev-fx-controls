@@ -1,4 +1,4 @@
-import { ICheckedTerms } from '../../../PropertyFieldTermSetPicker';
+import { ICheckedTerms } from '../../../PropertyFieldTermPicker';
 import { IDateFieldValue } from "../../../PropertyFieldDatePicker";
 import { IImageSize } from "../../../FileTypeIcon";
 

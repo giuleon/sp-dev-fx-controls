@@ -6,16 +6,16 @@ import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
 import { Spinner, SpinnerType } from 'office-ui-fabric-react/lib/Spinner';
 import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 import {
-  IPropertyFieldTermSetPickerPropsInternal
-} from './IPropertyFieldTermSetPicker';
+  IPropertyFieldTermPickerPropsInternal
+} from './IPropertyFieldTermPicker';
 import { SPHttpClient, SPHttpClientResponse, ISPHttpClientOptions } from '@microsoft/sp-http';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { ICheckedTerms, ICheckedTerm } from './IPropertyFieldTermSetPicker';
-import { IPropertyFieldTermSetPickerHostProps, IPropertyFieldFontPickerHostState, ITermGroupProps, ITermGroupState, ITermSetProps, ITermSetState, ITermProps, ITermState } from './IPropertyFieldTermSetPickerHost';
+import { ICheckedTerms, ICheckedTerm } from './IPropertyFieldTermPicker';
+import { IPropertyFieldTermPickerHostProps, IPropertyFieldFontPickerHostState, ITermGroupProps, ITermGroupState, ITermSetProps, ITermSetState, ITermProps, ITermState } from './IPropertyFieldTermPickerHost';
 import SPTermStorePickerService from './../../services/SPTermStorePickerService';
 import { ITermStore, IGroup, ITerm } from './../../services/ISPTermStorePickerService';
-import styles from './PropertyFieldTermSetPickerHost.module.scss';
+import styles from './PropertyFieldTermPickerHost.module.scss';
 import { sortBy, uniqBy } from '@microsoft/sp-lodash-subset';
 import TermGroup from './TermGroup';
 import FieldErrorMessage from '../errorMessage/FieldErrorMessage';
@@ -30,9 +30,9 @@ export const TERMSET_IMG = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAA
 
 /**
  * @class
- * Renders the controls for PropertyFieldTermSetPicker component
+ * Renders the controls for PropertyFieldTermPicker component
  */
-export default class PropertyFieldTermSetPickerHost extends React.Component<IPropertyFieldTermSetPickerHostProps, IPropertyFieldFontPickerHostState> {
+export default class PropertyFieldTermPickerHost extends React.Component<IPropertyFieldTermPickerHostProps, IPropertyFieldFontPickerHostState> {
   private async: Async;
   private delayedValidate: (value: ICheckedTerms) => void;
   private termsService: SPTermStorePickerService;
@@ -41,7 +41,7 @@ export default class PropertyFieldTermSetPickerHost extends React.Component<IPro
    * @function
    * Constructor
    */
-  constructor(props: IPropertyFieldTermSetPickerHostProps) {
+  constructor(props: IPropertyFieldTermPickerHostProps) {
     super(props);
 
     this.state = {

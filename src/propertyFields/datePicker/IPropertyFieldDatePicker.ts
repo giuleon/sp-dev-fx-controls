@@ -1,4 +1,3 @@
-import { IDateFieldValue } from './../../../lib/propertyFields/datePicker/IPropertyFieldDatePicker.d';
 import { IPropertyPaneCustomFieldProps } from '@microsoft/sp-webpart-base';
 
 /**

@@ -15,7 +15,7 @@ import { ITestFieldsWebPartProps } from './ITestFieldsWebPartProps';
 // Custom property fields
 import { PropertyFieldPeoplePicker, IPrincipalType } from '../../PropertyFieldPeoplePicker';
 import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from "../../PropertyFieldListPicker";
-import { PropertyFieldTermSetPicker } from "../../PropertyFieldTermSetPicker";
+import { PropertyFieldTermPicker } from "../../PropertyFieldTermPicker";
 import { PropertyFieldDatePicker, ITimeConvention, IDateConvention } from "../../PropertyFieldDatePicker";
 
 export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFieldsWebPartProps> {
@@ -106,7 +106,7 @@ export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFields
                   deferredValidationTime: 0,
                   key: 'multiListPickerFieldId'
                 }),
-                PropertyFieldTermSetPicker('terms', {
+                PropertyFieldTermPicker('terms', {
                   label: 'Select terms',
                   panelTitle: 'Select terms',
                   initialValues: this.properties.terms,

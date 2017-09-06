@@ -95,7 +95,7 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
      */
     private _getIconByExtension(extension: string, iconType: IIconType): string {
         // Find the application index by the provided extension
-        const appIdx = findIndex(ApplicationIconList, item => { return item.extensions.indexOf(extension.toLowerCase()) !== -1 });
+        const appIdx = findIndex(ApplicationIconList, item => { return item.extensions.indexOf(extension.toLowerCase()) !== -1; });
 
         // Check if an application has found
         if (appIdx !== -1) {

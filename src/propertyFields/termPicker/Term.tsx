@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
-import { ITermProps, ITermState } from "./IPropertyFieldTermSetPickerHost";
+import { ITermProps, ITermState } from "./IPropertyFieldTermPickerHost";
 
-import styles from './PropertyFieldTermSetPickerHost.module.scss';
+import styles from './PropertyFieldTermPickerHost.module.scss';
 
 
 /**

@@ -1,9 +1,9 @@
 import * as React from "react";
-import { ITermGroupProps, ITermGroupState } from "./IPropertyFieldTermSetPickerHost";
-import { GROUP_IMG, EXPANDED_IMG, COLLAPSED_IMG } from "./PropertyFieldTermSetPickerHost";
+import { ITermGroupProps, ITermGroupState } from "./IPropertyFieldTermPickerHost";
+import { GROUP_IMG, EXPANDED_IMG, COLLAPSED_IMG } from "./PropertyFieldTermPickerHost";
 import TermSet from './TermSet';
 
-import styles from './PropertyFieldTermSetPickerHost.module.scss';
+import styles from './PropertyFieldTermPickerHost.module.scss';
 
 /**
  * @class
