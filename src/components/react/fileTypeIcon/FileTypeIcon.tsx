@@ -1,6 +1,6 @@
 import * as React from "react";
 import { findIndex } from '@microsoft/sp-lodash-subset';
-import { IFileTypeIconProps, IApplicationType, ApplicationIconList, IIconType, IconSizes, IImageSize, IImageResult, ICON_GENERIC_16, ICON_GENERIC_48, ICON_GENERIC_96 } from "./IFileTypeIcon";
+import { IFileTypeIconProps, ApplicationType, ApplicationIconList, IconType, IconSizes, ImageSize, IImageResult, ICON_GENERIC_16, ICON_GENERIC_48, ICON_GENERIC_96 } from "./IFileTypeIcon";
 
 const ICON_GENERIC = "FileTemplate";
 const ICON_DEFAULT_SIZE = "icon16";
@@ -25,15 +25,15 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
             const path: string = this.props.path;
             const fileExtension: string = this._getFileExtension(path);
             // Check the known file extensions list
-            const iconName = this._getIconByExtension(fileExtension, IIconType.font);
+            const iconName = this._getIconByExtension(fileExtension, IconType.font);
             if (iconName !== null) {
                 className = iconName;
             }
         }
         // Check if the application name has been provided
         else if (typeof this.props.application !== "undefined" && this.props.application !== null) {
-            const application: IApplicationType = this.props.application;
-            const iconName = this._getIconByApplicationType(application, IIconType.font);
+            const application: ApplicationType = this.props.application;
+            const iconName = this._getIconByApplicationType(application, IconType.font);
             if (iconName !== null) {
                 className = iconName;
             }
@@ -62,12 +62,12 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
             const path: string = this.props.path;
             const fileExtension: string = this._getFileExtension(path);
             // Get the image for the current file extension
-            image = this._getIconByExtension(fileExtension, IIconType.image);
+            image = this._getIconByExtension(fileExtension, IconType.image);
         }
         // Check if the application name has been provided
         else if (typeof this.props.application !== "undefined" && this.props.application !== null) {
-            const application: IApplicationType = this.props.application;
-            image = this._getIconByApplicationType(application, IIconType.image);
+            const application: ApplicationType = this.props.application;
+            image = this._getIconByApplicationType(application, IconType.image);
         }
 
         return {
@@ -93,14 +93,14 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
      *
      * @param extension File extension
      */
-    private _getIconByExtension(extension: string, iconType: IIconType): string {
+    private _getIconByExtension(extension: string, iconType: IconType): string {
         // Find the application index by the provided extension
         const appIdx = findIndex(ApplicationIconList, item => { return item.extensions.indexOf(extension.toLowerCase()) !== -1; });
 
         // Check if an application has found
         if (appIdx !== -1) {
             // Check the type of icon, the image needs to get checked for the name
-            if (iconType === IIconType.font) {
+            if (iconType === IconType.font) {
                 return ApplicationIconList[appIdx].iconName;
             } else {
                 const knownImgs = ApplicationIconList[appIdx].imageName;
@@ -124,14 +124,14 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
      *
      * @param application
      */
-    private _getIconByApplicationType(application: IApplicationType, iconType: IIconType): string {
+    private _getIconByApplicationType(application: ApplicationType, iconType: IconType): string {
         // Find the application index by the provided extension
         const appIdx = findIndex(ApplicationIconList, item => item.application === application);
 
         // Check if an application has found
         if (appIdx !== -1) {
             const knownApp = ApplicationIconList[appIdx];
-            if (iconType === IIconType.font) {
+            if (iconType === IconType.font) {
                 return knownApp.iconName;
             } else {
                 // Check if the application has a known list of image types
@@ -150,7 +150,7 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
      *
      * @param value Image size value
      */
-    private _getFileSizeName(value: IImageSize): string {
+    private _getFileSizeName(value: ImageSize): string {
         // Find the image size index by the image size
         const sizeIdx = findIndex(IconSizes, size => size.size === value);
 
@@ -171,7 +171,7 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
         let iconElm = <span />;
 
         // Check the type of icon that needs to be displayed
-        if (this.props.type === IIconType.image) {
+        if (this.props.type === IconType.image) {
             // Return an image icon element
             const iconImage = this._getIconImageName();
             // Check if the image was found, otherwise a generic image will be returned

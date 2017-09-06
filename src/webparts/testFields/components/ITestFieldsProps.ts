@@ -1,6 +1,6 @@
 import { ICheckedTerms } from '../../../PropertyFieldTermPicker';
 import { IDateFieldValue } from "../../../PropertyFieldDatePicker";
-import { IImageSize } from "../../../FileTypeIcon";
+import { ImageSize } from "../../../FileTypeIcon";
 
 export interface ITestFieldsProps {
   description: string;
@@ -11,5 +11,5 @@ export interface ITestFieldsProps {
 }
 
 export interface ITestFieldsState {
-  imgSize: IImageSize;
+  imgSize: ImageSize;
 }

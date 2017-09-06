@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './TestFields.module.scss';
 import { ITestFieldsProps, ITestFieldsState } from './ITestFieldsProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import { FileTypeIcon, IApplicationType, IIconType, IImageSize } from "../../../FileTypeIcon";
+import { FileTypeIcon, ApplicationType, IconType, ImageSize } from "../../../FileTypeIcon";
 import { Dropdown, IDropdownOption } from "office-ui-fabric-react/lib/components/Dropdown";
 
 export default class TestFields extends React.Component<ITestFieldsProps, ITestFieldsState> {
@@ -10,7 +10,7 @@ export default class TestFields extends React.Component<ITestFieldsProps, ITestF
     super(props);
 
     this.state = {
-      imgSize: IImageSize.small
+      imgSize: ImageSize.small
     };
 
     this._onChange = this._onChange.bind(this);
@@ -25,19 +25,19 @@ export default class TestFields extends React.Component<ITestFieldsProps, ITestF
   public render(): React.ReactElement<ITestFieldsProps> {
     const sizeOptions: IDropdownOption[] = [
       {
-        key: IImageSize.small,
-        text: IImageSize[IImageSize.small],
-        selected: IImageSize.small === this.state.imgSize
+        key: ImageSize.small,
+        text: ImageSize[ImageSize.small],
+        selected: ImageSize.small === this.state.imgSize
       },
       {
-        key: IImageSize.medium,
-        text: IImageSize[IImageSize.medium],
-        selected: IImageSize.medium === this.state.imgSize
+        key: ImageSize.medium,
+        text: ImageSize[ImageSize.medium],
+        selected: ImageSize.medium === this.state.imgSize
       },
       {
-        key: IImageSize.large,
-        text: IImageSize[IImageSize.large],
-        selected: IImageSize.large === this.state.imgSize
+        key: ImageSize.large,
+        text: ImageSize[ImageSize.large],
+        selected: ImageSize.large === this.state.imgSize
       }
     ];
 
@@ -54,28 +54,28 @@ export default class TestFields extends React.Component<ITestFieldsProps, ITestF
               <p className="ms-font-l ms-fontColor-white">Term(s): {this.props.terms.map(t => t.name).join(', ')}</p>
               <p className="ms-font-l ms-fontColor-white">Date: {this.props.datetime.displayValue}</p>
               <p className="ms-font-l ms-fontColor-white">Font icons:
-                <FileTypeIcon type={IIconType.font} path="https://contoso.sharepoint.com/documents/filename.docx" />
-                <FileTypeIcon type={IIconType.font} path="https://contoso.sharepoint.com/documents/filename.unknown" />
-                <FileTypeIcon type={IIconType.font} path="https://contoso.sharepoint.com/documents/filename.doc" />
-                <FileTypeIcon type={IIconType.font} application={IApplicationType.HTML} />
-                <FileTypeIcon type={IIconType.font} application={IApplicationType.Mail} />
-                <FileTypeIcon type={IIconType.font} application={IApplicationType.SASS} />
+                <FileTypeIcon type={IconType.font} path="https://contoso.sharepoint.com/documents/filename.docx" />
+                <FileTypeIcon type={IconType.font} path="https://contoso.sharepoint.com/documents/filename.unknown" />
+                <FileTypeIcon type={IconType.font} path="https://contoso.sharepoint.com/documents/filename.doc" />
+                <FileTypeIcon type={IconType.font} application={ApplicationType.HTML} />
+                <FileTypeIcon type={IconType.font} application={ApplicationType.Mail} />
+                <FileTypeIcon type={IconType.font} application={ApplicationType.SASS} />
               </p>
               <p className="ms-font-l ms-fontColor-white">Image icons:
-                <FileTypeIcon type={IIconType.image} path="https://contoso.sharepoint.com/documents/filename.docx" />
-                <FileTypeIcon type={IIconType.image} path="https://contoso.sharepoint.com/documents/filename.unknown" />
-                <FileTypeIcon type={IIconType.image} path="https://contoso.sharepoint.com/documents/filename.doc" />
-                <FileTypeIcon type={IIconType.image} application={IApplicationType.Word} />
+                <FileTypeIcon type={IconType.image} path="https://contoso.sharepoint.com/documents/filename.docx" />
+                <FileTypeIcon type={IconType.image} path="https://contoso.sharepoint.com/documents/filename.unknown" />
+                <FileTypeIcon type={IconType.image} path="https://contoso.sharepoint.com/documents/filename.doc" />
+                <FileTypeIcon type={IconType.image} application={ApplicationType.Word} />
 
-                <FileTypeIcon type={IIconType.image} size={IImageSize.small} application={IApplicationType.Excel} />
-                <FileTypeIcon type={IIconType.image} size={IImageSize.medium} application={IApplicationType.Excel} />
-                <FileTypeIcon type={IIconType.image} size={IImageSize.large} application={IApplicationType.Excel} />
+                <FileTypeIcon type={IconType.image} size={ImageSize.small} application={ApplicationType.Excel} />
+                <FileTypeIcon type={IconType.image} size={ImageSize.medium} application={ApplicationType.Excel} />
+                <FileTypeIcon type={IconType.image} size={ImageSize.large} application={ApplicationType.Excel} />
               </p>
 
               <p className="ms-font-l ms-fontColor-white">Icon size tester:
                 <Dropdown options={sizeOptions} onChanged={this._onChange} />
-                <FileTypeIcon type={IIconType.image} size={this.state.imgSize} application={IApplicationType.Excel} />
-                <FileTypeIcon type={IIconType.image} size={this.state.imgSize} />
+                <FileTypeIcon type={IconType.image} size={this.state.imgSize} application={ApplicationType.Excel} />
+                <FileTypeIcon type={IconType.image} size={this.state.imgSize} />
               </p>
             </div>
           </div>

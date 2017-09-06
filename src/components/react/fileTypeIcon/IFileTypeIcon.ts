@@ -1,7 +1,7 @@
 /**
  * Available icon types
  */
-export enum IIconType {
+export enum IconType {
     font,
     image
 }
@@ -9,7 +9,7 @@ export enum IIconType {
 /**
  * Available applications / types
  */
-export enum IApplicationType {
+export enum ApplicationType {
     Access = 0,
     ASPX,
     Code,
@@ -34,7 +34,7 @@ export enum IApplicationType {
  * @enum
  * Available image sizes
  */
-export enum IImageSize {
+export enum ImageSize {
     small,
     medium,
     large
@@ -45,7 +45,7 @@ export enum IImageSize {
  * Interface for the application icons list
  */
 export interface IApplicationIcons {
-    application: IApplicationType;
+    application: ApplicationType;
     extensions: string[];
     iconName: string;
     imageName: string[];
@@ -56,109 +56,109 @@ export interface IApplicationIcons {
  */
 export const ApplicationIconList: IApplicationIcons[] = [
     {
-        application: IApplicationType.Access,
+        application: ApplicationType.Access,
         extensions: ["accdb", "accde", "accdt", "accdr", "mdb"],
         iconName: "AccessLogo",
         imageName: ["accdb"]
     },
     {
-        application: IApplicationType.ASPX,
+        application: ApplicationType.ASPX,
         extensions: ["aspx", "master"],
         iconName: "FileASPX",
         imageName: []
     },
     {
-        application: IApplicationType.Code,
+        application: ApplicationType.Code,
         extensions: ["js", "ts", "cs"],
         iconName: "FileCode",
         imageName: []
     },
     {
-        application: IApplicationType.CSS,
+        application: ApplicationType.CSS,
         extensions: ["css"],
         iconName: "FileCSS",
         imageName: []
     },
     {
-        application: IApplicationType.CSV,
+        application: ApplicationType.CSV,
         extensions: ["csv"],
         iconName: "ExcelDocument",
         imageName: ["csv"]
     },
     {
-        application: IApplicationType.Excel,
+        application: ApplicationType.Excel,
         extensions: ["xls", "xlt", "xlm", "xlsx", "xlsm", "xltx", "xltm", "ods"],
         iconName: "ExcelDocument",
         imageName: ["xlsx", "xls", "xltx", "ods"]
     },
     {
-        application: IApplicationType.HTML,
+        application: ApplicationType.HTML,
         extensions: ["html"],
         iconName: "FileHTML",
         imageName: []
     },
     {
-        application: IApplicationType.Image,
+        application: ApplicationType.Image,
         extensions: ["jpg", "jpeg", "gif", "png"],
         iconName: "FileImage",
         imageName: []
     },
     {
-        application: IApplicationType.Mail,
+        application: ApplicationType.Mail,
         extensions: ["msg"],
         iconName: "Mail",
         imageName: []
     },
     {
-        application: IApplicationType.OneNote,
+        application: ApplicationType.OneNote,
         extensions: ["one", "onepkg", "onetoc"],
         iconName: "OneNoteLogo",
         imageName: ["one", "onepkg", "onetoc"]
     },
     {
-        application: IApplicationType.PDF,
+        application: ApplicationType.PDF,
         extensions: ["pdf"],
         iconName: "PDF",
         imageName: []
     },
     {
-        application: IApplicationType.PowerApps,
+        application: ApplicationType.PowerApps,
         extensions: ["msapp"],
         iconName: "PowerApps",
         imageName: []
     },
     {
-        application: IApplicationType.PowerPoint,
+        application: ApplicationType.PowerPoint,
         extensions: ["ppt", "pot", "pps", "pptx", "pptm", "potx", "potm", "ppam", "ppsx", "ppsm", "sldx", "sldx"],
         iconName: "PowerPointDocument",
         imageName: ["odp", "potx", "ppsx", "pptx"]
     },
     {
-        application: IApplicationType.Project,
+        application: ApplicationType.Project,
         extensions: ["mpp", "mpt", "mpx", "mpd"],
         iconName: "ProjectLogoInverse",
         imageName: ["mpp", "mpt"]
     },
     {
-        application: IApplicationType.Publisher,
+        application: ApplicationType.Publisher,
         extensions: ["pub"],
         iconName: "PublisherLogo",
         imageName: ["pub"]
     },
     {
-        application: IApplicationType.SASS,
+        application: ApplicationType.SASS,
         extensions: ["scss", "sass"],
         iconName: "FileSass",
         imageName: []
     },
     {
-        application: IApplicationType.Visio,
+        application: ApplicationType.Visio,
         extensions: ["vsd", "vss", "vst", "vdx", "vsx", "vtx", "vsdx"],
         iconName: "VisioDocument",
         imageName: ["vsdx", "vssx", "vstx"]
     },
     {
-        application: IApplicationType.Word,
+        application: ApplicationType.Word,
         extensions: ["doc", "dot", "docx", "docm", "dotx", "dotm", "docb", "odt"],
         iconName: "WordDocument",
         imageName: ["docx", "dotx", "odt"]
@@ -170,15 +170,15 @@ export const ApplicationIconList: IApplicationIcons[] = [
  */
 export const IconSizes = [
     {
-        size: IImageSize.small,
+        size: ImageSize.small,
         name: "icon16"
     },
     {
-        size: IImageSize.medium,
+        size: ImageSize.medium,
         name: "icon48"
     },
     {
-        size: IImageSize.large,
+        size: ImageSize.large,
         name: "icon96"
     }
 ];
@@ -197,10 +197,10 @@ export interface IImageResult {
  * Interface for the FileTypeIcon component properties
  */
 export interface IFileTypeIconProps {
-    type: IIconType;
-    application?: IApplicationType;
+    type: IconType;
+    application?: ApplicationType;
     path?: string;
-    size?: IImageSize;
+    size?: ImageSize;
 }
 
 /**
