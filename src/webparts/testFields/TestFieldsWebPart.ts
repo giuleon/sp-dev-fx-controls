@@ -24,7 +24,7 @@ export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFields
     const element: React.ReactElement<ITestFieldsProps> = React.createElement(
       TestFields,
       {
-        description: this.properties.description,
+        context: this.context,
         list: this.properties.singleList as string,
         multiList: this.properties.multiList as string[] || [],
         terms: this.properties.terms || [],
