@@ -1,6 +1,6 @@
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { ICheckedTerms } from '../../../PropertyFieldTermPicker';
-import { IDateFieldValue } from "../../../PropertyFieldDatePicker";
+import { IDateFieldValue } from "../../../PropertyFieldDateTimePicker";
 import { ImageSize } from "../../../FileTypeIcon";
 
 export interface ITestFieldsProps {

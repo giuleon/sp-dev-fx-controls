@@ -1,6 +1,6 @@
 import { IPropertyFieldGroupOrPerson } from '../../PropertyFieldPeoplePicker';
 import { ICheckedTerms } from '../../PropertyFieldTermPicker';
-import { IDateFieldValue } from "../../PropertyFieldDatePicker";
+import { IDateFieldValue } from "../../PropertyFieldDateTimePicker";
 
 export interface ITestFieldsWebPartProps {
   description: string;

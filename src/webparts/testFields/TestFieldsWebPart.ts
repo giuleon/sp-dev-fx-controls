@@ -16,7 +16,7 @@ import { ITestFieldsWebPartProps } from './ITestFieldsWebPartProps';
 import { PropertyFieldPeoplePicker, IPrincipalType } from '../../PropertyFieldPeoplePicker';
 import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from "../../PropertyFieldListPicker";
 import { PropertyFieldTermPicker } from "../../PropertyFieldTermPicker";
-import { PropertyFieldDatePicker, ITimeConvention, IDateConvention } from "../../PropertyFieldDatePicker";
+import { PropertyFieldDateTimePicker, ITimeConvention, IDateConvention } from "../../PropertyFieldDateTimePicker";
 
 export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFieldsWebPartProps> {
 
@@ -122,7 +122,7 @@ export default class TestFieldsWebPart extends BaseClientSideWebPart<ITestFields
                   deferredValidationTime: 0,
                   key: 'termSetsPickerFieldId'
                 }),
-                PropertyFieldDatePicker('datetime', {
+                PropertyFieldDateTimePicker('datetime', {
                   label: 'Select the date',
                   initialDate: this.properties.datetime,
                   // formatDate: this._formatDateIso,

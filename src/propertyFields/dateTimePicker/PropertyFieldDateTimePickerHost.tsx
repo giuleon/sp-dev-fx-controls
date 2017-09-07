@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { IPropertyFieldDatePickerPropsInternal, ITimeConvention, IDateConvention, IDateFieldValue } from './IPropertyFieldDatePicker';
+import { IPropertyFieldDateTimePickerPropsInternal, ITimeConvention, IDateConvention, IDateFieldValue } from './IPropertyFieldDateTimePicker';
 import { DatePicker, IDatePickerStrings } from 'office-ui-fabric-react/lib/DatePicker';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import { Async } from 'office-ui-fabric-react/lib/Utilities';
 import * as strings from 'componentAndFieldStrings';
-import { IPropertyFieldDatePickerHostProps, IPropertyFieldDatePickerHostState, ITimeComponentProps, IHoursComponentProps } from "./IPropertyFieldDatePickerHost";
+import { IPropertyFieldDateTimePickerHostProps, IPropertyFieldDateTimePickerHostState, ITimeComponentProps, IHoursComponentProps } from "./IPropertyFieldDateTimePickerHost";
 import FieldErrorMessage from '../errorMessage/FieldErrorMessage';
-import styles from './PropertyFieldDatePickerHost.module.scss';
+import styles from './PropertyFieldDateTimePickerHost.module.scss';
 import HoursComponent from './HoursComponent';
 import MinutesComponent from './MinutesComponent';
 import SecondsComponent from './SecondsComponent';
@@ -74,9 +74,9 @@ class DatePickerStrings implements IDatePickerStrings {
 
 /**
  * @class
- * Renders the controls for PropertyFieldDatePicker component
+ * Renders the controls for PropertyFieldDateTimePicker component
  */
-export default class PropertyFieldDatePickerHost extends React.Component<IPropertyFieldDatePickerHostProps, IPropertyFieldDatePickerHostState> {
+export default class PropertyFieldDateTimePickerHost extends React.Component<IPropertyFieldDateTimePickerHostProps, IPropertyFieldDateTimePickerHostState> {
     private _latestValidateValue: string;
     private async: Async;
     private delayedValidate: (value: IDateFieldValue) => void;
@@ -90,7 +90,7 @@ export default class PropertyFieldDatePickerHost extends React.Component<IProper
      * @function
      * Constructor
      */
-    constructor(props: IPropertyFieldDatePickerHostProps) {
+    constructor(props: IPropertyFieldDateTimePickerHostProps) {
         super(props);
         // Bind the current object to the external called onSelectDate method
         this._onSelectDate = this._onSelectDate.bind(this);
@@ -325,7 +325,7 @@ export default class PropertyFieldDatePickerHost extends React.Component<IProper
 
         // Renders content
         return (
-            <div className={styles.propertyFieldDatePicker}>
+            <div className={styles.propertyFieldDateTimePicker}>
                 <Label>{this.props.label}</Label>
                 <table cellPadding="0" cellSpacing="0">
                     <tbody>

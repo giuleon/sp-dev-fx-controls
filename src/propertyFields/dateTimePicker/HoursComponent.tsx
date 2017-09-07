@@ -1,6 +1,6 @@
 import * as React from "react";
-import { IHoursComponentProps } from "./IPropertyFieldDatePickerHost";
-import { ITimeConvention } from "./IPropertyFieldDatePicker";
+import { IHoursComponentProps } from "./IPropertyFieldDateTimePickerHost";
+import { ITimeConvention } from "./IPropertyFieldDateTimePicker";
 import { Dropdown, IDropdownOption } from "office-ui-fabric-react/lib/components/Dropdown";
 
 /**

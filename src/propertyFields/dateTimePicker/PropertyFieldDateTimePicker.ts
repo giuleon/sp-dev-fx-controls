@@ -5,21 +5,21 @@ import {
     PropertyPaneFieldType,
     IPropertyPaneCustomFieldProps
 } from '@microsoft/sp-webpart-base';
-import { IPropertyFieldDatePickerHostProps } from './IPropertyFieldDatePickerHost';
-import PropertyFieldDatePickerHost from './PropertyFieldDatePickerHost';
-import { IDateFieldValue, IPropertyFieldDatePickerPropsInternal, ITimeConvention, IPropertyFieldDatePickerProps, IDateConvention } from "./IPropertyFieldDatePicker";
+import { IPropertyFieldDateTimePickerHostProps } from './IPropertyFieldDateTimePickerHost';
+import PropertyFieldDateTimePickerHost from './PropertyFieldDateTimePickerHost';
+import { IDateFieldValue, IPropertyFieldDateTimePickerPropsInternal, ITimeConvention, IPropertyFieldDateTimePickerProps, IDateConvention } from "./IPropertyFieldDateTimePicker";
 
 /**
  * @class
- * Represents a PropertyFieldDatePicker object
+ * Represents a PropertyFieldDateTimePicker object
  *
  */
-class PropertyFieldDatePickerBuilder implements IPropertyPaneField<IPropertyFieldDatePickerPropsInternal> {
+class PropertyFieldDateTimePickerBuilder implements IPropertyPaneField<IPropertyFieldDateTimePickerPropsInternal> {
 
     //Properties defined by IPropertyPaneField
     public type: PropertyPaneFieldType = PropertyPaneFieldType.Custom;
     public targetProperty: string;
-    public properties: IPropertyFieldDatePickerPropsInternal;
+    public properties: IPropertyFieldDateTimePickerPropsInternal;
 
     //Custom properties
     private label: string;
@@ -39,7 +39,7 @@ class PropertyFieldDatePickerBuilder implements IPropertyPaneField<IPropertyFiel
      * @function
      * Ctor
      */
-    public constructor(_targetProperty: string, _properties: IPropertyFieldDatePickerPropsInternal) {
+    public constructor(_targetProperty: string, _properties: IPropertyFieldDateTimePickerPropsInternal) {
         this.render = this.render.bind(this);
         this.targetProperty = _properties.targetProperty;
         this.properties = _properties;
@@ -81,7 +81,7 @@ class PropertyFieldDatePickerBuilder implements IPropertyPaneField<IPropertyFiel
      */
     private render(elem: HTMLElement, ctx?: any, changeCallback?: (targetProperty?: string, newValue?: any) => void): void {
         //Construct the JSX properties
-        const element: React.ReactElement<IPropertyFieldDatePickerHostProps> = React.createElement(PropertyFieldDatePickerHost, {
+        const element: React.ReactElement<IPropertyFieldDateTimePickerHostProps> = React.createElement(PropertyFieldDateTimePickerHost, {
             label: this.label,
             initialDate: this.initialDate,
             targetProperty: this.targetProperty,
@@ -119,10 +119,10 @@ class PropertyFieldDatePickerBuilder implements IPropertyPaneField<IPropertyFiel
  * @param targetProperty - Target property the custom field is associated to.
  * @param properties - Strongly typed custom field properties.
  */
-export function PropertyFieldDatePicker(targetProperty: string, properties: IPropertyFieldDatePickerProps): IPropertyPaneField<IPropertyFieldDatePickerPropsInternal> {
+export function PropertyFieldDateTimePicker(targetProperty: string, properties: IPropertyFieldDateTimePickerProps): IPropertyPaneField<IPropertyFieldDateTimePickerPropsInternal> {
 
     //Create an internal properties object from the given properties
-    var newProperties: IPropertyFieldDatePickerPropsInternal = {
+    var newProperties: IPropertyFieldDateTimePickerPropsInternal = {
         label: properties.label,
         targetProperty: targetProperty,
         initialDate: properties.initialDate,
@@ -139,7 +139,7 @@ export function PropertyFieldDatePicker(targetProperty: string, properties: IPro
         render: properties.render,
         disableReactivePropertyChanges: properties.disableReactivePropertyChanges
     };
-    //Calls the PropertyFieldDatePicker builder object
+    //Calls the PropertyFieldDateTimePicker builder object
     //This object will simulate a PropertyFieldCustom to manage his rendering process
-    return new PropertyFieldDatePickerBuilder(targetProperty, newProperties);
+    return new PropertyFieldDateTimePickerBuilder(targetProperty, newProperties);
 }

@@ -38,10 +38,10 @@ export enum IDateConvention {
 
 /**
  * @interface
- * Public properties of the PropertyFieldDatePicker custom field
+ * Public properties of the PropertyFieldDateTimePicker custom field
  *
  */
-export interface IPropertyFieldDatePickerProps {
+export interface IPropertyFieldDateTimePickerProps {
     /**
      * @var
      * Property field label displayed on top
@@ -120,13 +120,13 @@ export interface IPropertyFieldDatePickerProps {
 
 /**
  * @interface
- * Private properties of the PropertyFieldDatePicker custom field.
+ * Private properties of the PropertyFieldDateTimePicker custom field.
  * We separate public & private properties to include onRender & onDispose method waited
  * by the PropertyFieldCustom, witout asking to the developer to add it when he's using
- * the PropertyFieldDatePicker.
+ * the PropertyFieldDateTimePicker.
  *
  */
-export interface IPropertyFieldDatePickerPropsInternal extends IPropertyPaneCustomFieldProps {
+export interface IPropertyFieldDateTimePickerPropsInternal extends IPropertyPaneCustomFieldProps {
     label: string;
     initialDate?: IDateFieldValue;
     targetProperty: string;

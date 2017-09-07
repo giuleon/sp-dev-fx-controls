@@ -1,5 +1,5 @@
-import { ITimeComponentProps } from './IPropertyFieldDatePickerHost';
-import { IPropertyFieldDatePickerPropsInternal, ITimeConvention } from './IPropertyFieldDatePicker';
+import { ITimeComponentProps } from './IPropertyFieldDateTimePickerHost';
+import { IPropertyFieldDateTimePickerPropsInternal, ITimeConvention } from './IPropertyFieldDateTimePicker';
 import { IDropdownOption } from "office-ui-fabric-react/lib/components/Dropdown";
 
 /**
@@ -7,11 +7,11 @@ import { IDropdownOption } from "office-ui-fabric-react/lib/components/Dropdown"
  * PropertyFieldDateTimePickerHost properties interface
  *
  */
-export interface IPropertyFieldDatePickerHostProps extends IPropertyFieldDatePickerPropsInternal {
+export interface IPropertyFieldDateTimePickerHostProps extends IPropertyFieldDateTimePickerPropsInternal {
     onChange: (targetProperty?: string, newValue?: any) => void;
 }
 
-export interface IPropertyFieldDatePickerHostState {
+export interface IPropertyFieldDateTimePickerHostState {
     day?: Date;
     hours?: number;
     minutes?: number;
