@@ -25,7 +25,7 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
             const path: string = this.props.path;
             const fileExtension: string = this._getFileExtension(path);
             // Check the known file extensions list
-            const iconName = this._getIconByExtension(fileExtension, IconType.font);
+            const iconName = this._getIconByExtension(fileExtension.toLowerCase(), IconType.font);
             if (iconName !== null) {
                 className = iconName;
             }
@@ -62,7 +62,7 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
             const path: string = this.props.path;
             const fileExtension: string = this._getFileExtension(path);
             // Get the image for the current file extension
-            image = this._getIconByExtension(fileExtension, IconType.image);
+            image = this._getIconByExtension(fileExtension.toLowerCase(), IconType.image);
         }
         // Check if the application name has been provided
         else if (typeof this.props.application !== "undefined" && this.props.application !== null) {
@@ -178,13 +178,12 @@ export class FileTypeIcon extends React.Component<IFileTypeIconProps, {}> {
      */
     public render(): React.ReactElement<IFileTypeIconProps> {
         let iconElm = <span />;
-
         // Check the type of icon that needs to be displayed
         if (this.props.type === IconType.image) {
             // Return an image icon element
             const iconImage = this._getIconImageName();
             // Check if the image was found, otherwise a generic image will be returned
-            if (iconImage.image !== null) {
+            if (typeof iconImage.image !== "undefined" && iconImage.image !== null) {
                 iconElm = <div style={{ display: 'inline-block' }} className={`ms-BrandIcon--${iconImage.size} ms-BrandIcon--${iconImage.image}`}></div>;
             } else {
                 // Return a generic image
