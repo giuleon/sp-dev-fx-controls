@@ -2,7 +2,7 @@ import * as React from "react";
 import { findIndex } from '@microsoft/sp-lodash-subset';
 import { IFileTypeIconProps, ApplicationType, ApplicationIconList, IconType, IconSizes, ImageSize, IImageResult, ICON_GENERIC_16, ICON_GENERIC_48, ICON_GENERIC_96 } from "./IFileTypeIcon";
 
-const ICON_GENERIC = "FileTemplate";
+const ICON_GENERIC = "Page";
 const ICON_DEFAULT_SIZE = "icon16";
 
 /**
